@@ -42,7 +42,8 @@ async function main() {
   const Coffee = await ethers.getContractFactory("Coffee");
   const contract = await Coffee.deploy(); //instance of contract
 
-  console.log("Address of contract:", contract.address);
+  const coffeeAddress = await contract.getAddress();
+  console.log("Address of contract:", coffeeAddress);
 
     //  passing all the other addresses to the instance
 
@@ -57,13 +58,13 @@ async function main() {
 
   const amount = { value: ethers.parseEther("0.001") };
     // we are connecting from1 to the contract address and then calling the buyCoffee function through it
-  await contract.connect(from1).buyCoffee("from1", "Very nice chai", amount);
+  await contract.connect(from1).buyCoffee("from1", "Good luck", amount);
    // amount is the value we are sending through msg.value
-  await contract.connect(from2).buyCoffee("from2", "Very nice course", amount);
+  await contract.connect(from2).buyCoffee("from2", "have a great day", amount);
    // this function will help us retrieve balance of the address we will pass in it
   await contract
     .connect(from3)
-    .buyCoffee("from3", "Very nice information", amount);
+    .buyCoffee("from3", "GM", amount);
 
   console.log("After buying chai");
   await cosoleBalances(addresses);

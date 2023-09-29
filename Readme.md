@@ -14,4 +14,33 @@
 -> first we will deploy our smart contract on hardhat node then later on testnet
     -> hardhat is a blockchain that works like local blockchain
 
--> Now we will check if our smart contract is working properly or not
+-> Now we will check if our smart contract is working properly or not using deploy.js
+    -> run the script using
+        npx hardhat run scripts/deploy.js/
+  
+
+# Deploying smartcontract on testnet
+-> make changes to the hardhat.config.js file
+    -> add network
+
+-> create a .env file to keep your keys and url protected 
+    -> now add api_key, url and private_keys
+
+-> now run the script
+    npx hardhat run --network sepolia scripts/finaldeploy.js
+
+# Building with frontend
+-> create a react app
+    -> npx create-react-app coffeefrontend  
+
+# ABI
+-> when deployed a bridge is created that is the abi between smart contract and using it somewhere
+
+-> in the artifacts/BuyMeCoffee.sol folder we have Coffee.json, thats the abi
+
+-> now create a folder contracts in coffeefrontend and paste Coffee.json inside it
+
+# Building frontend that interacts with smartcontract
+
+-> build the frontend, add the wallet connection code, etc.
+
