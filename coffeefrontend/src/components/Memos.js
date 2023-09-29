@@ -5,11 +5,14 @@ const Memos = (state) => {
     const { contract } = state;
 
     useEffect(() => {
-        const memosManager = async() => {
+        const memosMessage = async() => {
             const {contract} = state;
             const memos = await contract.getMemos();
+            setMemos(memos);
         }
-    })
+
+        contract && memosMessage();
+    }, [contract]);
 };
 
 export default Memos;
