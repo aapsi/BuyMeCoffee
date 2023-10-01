@@ -13,6 +13,7 @@ function App() {
   });
 
   useEffect(() => {
+    // this code will be used in every dapp because it connects to the wallet metamask
     const connectWallet = async () => {
       const contractAddress = "0xd2Cb10497b5f605c7cb69b35735F626B66b714d9";
       const contractAbi = abi.abi;
@@ -43,7 +44,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App" style={{backgroundColor: '#fffdd0'}}>
       <Buy state={state} /> {/* Pass the state as a prop */}
       <Memos state={state} />
     </div>
