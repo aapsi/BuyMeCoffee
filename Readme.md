@@ -31,7 +31,10 @@
 
 # Building with frontend
 -> create a react app
-    -> npx create-react-app coffeefrontend  
+    -> npx create-react-app coffeefrontend
+    -> to run the app
+        -> cd .\coffeefrontend\
+        -> npm start  
 
 # ABI
 -> when deployed a bridge is created that is the abi between smart contract and using it somewhere
