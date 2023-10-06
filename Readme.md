@@ -1,3 +1,6 @@
+
+![image](https://github.com/aapsi/BuyMeCoffee/assets/39875852/90f1c9bb-6de5-4e1d-aa0b-9ddb5bab5e6b)
+
 # Steps to run
 -> Clone this repository
 -> open it in vs code and run:
