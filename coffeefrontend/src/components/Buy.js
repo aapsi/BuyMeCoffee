@@ -1,20 +1,22 @@
 import { ethers } from "ethers";
 const Buy = ({ state }) => {
-    const buyCoffee = async (event) => {
+  const buyChai = async (event) => {
     event.preventDefault();
     const { contract } = state;
     const name = document.querySelector("#name").value;
     const message = document.querySelector("#message").value;
+    console.log(name, message, contract);
     const amount = { value: ethers.utils.parseEther("0.001") };
-    const transaction = await contract.buyCoffee(name, message, amount);
+    const transaction = await contract.buyChai(name, message, amount);
     await transaction.wait();
+    console.log("Transaction is done");
   };
   return (
     <>
-      <div className="container-md" style={{ width: "50%", marginTop: "25px" }}>
-        <form onSubmit={buyCoffee}>
+      <div className="container-md" style={{ width: "50%", marginTop: "25px"}}>
+        <form onSubmit={buyChai}>
           <div className="mb-3">
-            <label className="form-label">Name : </label>
+            <label className="form-label" style={{  fontWeight: "bold", color: "white"}}>NAME</label>
             <input
               type="text"
               className="form-control"
@@ -23,7 +25,7 @@ const Buy = ({ state }) => {
             />
           </div>
           <div className="mb-3">
-            <label className="form-label">Message : </label>
+            <label className="form-label" style={{  fontWeight: "bold", color: "white"}}>MESSAGE</label>
             <input
               type="text"
               className="form-control"
@@ -36,7 +38,7 @@ const Buy = ({ state }) => {
             className="btn btn-primary"
             disabled={!state.contract}
           >
-            Pay
+            BUY
           </button>
         </form>
       </div>

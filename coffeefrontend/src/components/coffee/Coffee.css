@@ -1,0 +1,142 @@
+.coffeeBlock {
+    cursor: pointer;
+    width: 250px;
+}
+
+.coffeeBlock:hover .cup,
+.coffeeBlock:hover .bottom {
+    background-color: #909090;
+    transition: all 0.3s ease-in-out;
+}
+
+.coffee {
+    background-color: #501E03;
+    height: 15px;
+    border-radius: 57%;
+    z-index: 99;
+    position: relative;
+    margin: 0 auto -18px;
+    width: 200px;
+    animation: shake .4s ease-in;
+}
+
+.lid {
+    background-color: #dddddd;
+    height: 22px;
+    border-radius: 50%;
+    border: 8px solid #ddd;
+    z-index: 9;
+    position: relative;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 51%);
+    animation: shake .4s ease-in;
+}
+
+.cup {
+    transition: all 0.3s ease-in-out;
+    margin: -10px auto 0;
+    background-color: #dddddd;
+    height: 220px;
+    width: 100%;
+    max-width: 240px;
+    clip-path: polygon(50% 250%, 0 0, 100% 0);
+    animation: shake .4s ease-in;
+}
+
+.bottom {
+    background-color: #dddddd;
+    height: 20px;
+    border-radius: 50%;
+    z-index: 9;
+    position: relative;
+    width: 125px;
+    margin: -10px auto 0;
+    transition: all 0.3s ease-in-out;
+    animation: shake .4s ease-in;
+}
+
+.vapour {
+    position: relative;
+    display: flex;
+    z-index: 1;
+    padding: 0 20px;
+    justify-content: center;
+}
+
+.vapour span {
+    position: relative;
+    bottom: 50px;
+    display: block;
+    margin: 0 2px 50px;
+    min-width: 8px;
+    height: 120px;
+    background: #ffffff;
+    border-radius: 50%;
+    animation: animate 5s linear infinite;
+    opacity: 0;
+    filter: blur(10px);
+    animation-delay: calc(var(--v) * -0.5s);
+}
+
+.jump {
+    animation: clickedSize .4s ease-in;
+}
+.jump .cup,
+.jump .vapour span,
+.jump .bottom{
+    background-color: #909090;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(0) scaleX(1);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-150px) scaleX(5);
+    }
+    95% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(-300px) scaleX(10);
+    }
+}
+
+@keyframes clickedSize {
+    0%{
+        transform: translate(0);
+    }
+    25%{
+        transform: translateY(-1em);
+    }
+    50%{
+        transform: translateY(0);
+    }
+    80%{
+        transform: translateY(-1em);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake{
+    0%{
+        transform: translate(0);
+    }
+    25%{
+        transform: translate(.8em);
+    }
+    50%{
+        transform: translate(-.2em);
+    }
+    80%{
+        transform: translate(.8em);
+    }
+    100%{
+        transform: translate(0);
+    }
+}

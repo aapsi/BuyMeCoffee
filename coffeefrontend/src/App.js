@@ -4,13 +4,26 @@ import { ethers } from 'ethers'; // Import ethers directly
 import './App.css';
 import Buy from "./components/Buy.js";
 import Memos from "./components/Memos.js";
+import Coffee from "./components/coffee/Coffee";
+import img from "./asset/bg.jpg";
 
 function App() {
+
+  // app background 
+  const pageStyles = {
+    backgroundImage: `url(${img})`, // Replace with the path to your image
+    backgroundSize: 'cover', // Ensures the image covers the entire viewport
+    minHeight: '100vh', // Ensures the image covers the entire viewport height
+  };
+
+
   const [state, setState] = useState({
     provider: null,
     signer: null,
     contract: null,
   });
+
+  const [account, setAccount] = useState("None");
 
   useEffect(() => {
     // this code will be used in every dapp because it connects to the wallet metamask
@@ -22,19 +35,30 @@ function App() {
         const { ethereum } = window;
 
         if (ethereum) {
-          // Corrected method name from "requests" to "request"
-          const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+          const account = await ethereum.request({
+            method: "eth_requestAccounts",
+          });
+
+          window.ethereum.on("chainChanged", () => {
+            window.location.reload();
+          });
+
+          window.ethereum.on("accountsChanged", () => {
+            window.location.reload();
+          });
+
+          const provider = new ethers.providers.Web3Provider(ethereum);
+          const signer = provider.getSigner();
+          const contract = new ethers.Contract(
+            contractAddress,
+            contractAbi,
+            signer
+          );
+          setAccount(account);
+          setState({ provider, signer, contract });
+        } else {
+          alert("Please install metamask");
         }
-
-        const provider = new ethers.providers.Web3Provider(ethereum);
-        const signer = provider.getSigner();
-        const contract = new ethers.Contract(
-          contractAddress,
-          contractAbi,
-          signer
-        );
-
-        setState({ provider, signer, contract });
       } catch (error) {
         console.log(error);
       }
@@ -44,8 +68,13 @@ function App() {
   }, []);
 
   return (
-    <div className="App" style={{backgroundColor: '#fffdd0'}}>
-      <Buy state={state} /> {/* Pass the state as a prop */}
+    <div className="App" style={pageStyles}>
+      <nav style={{ background: 'rgba(255, 255, 255, 0.5)', backdropFilter: 'blur(10px)', padding: '10px', textAlign: 'center', fontWeight: 'bold', fontSize: '24px' }}>BUY ME A COFFEE</nav>
+      <div className="box">
+        <Buy state={state} /> {/* Pass the state as a prop */}
+        <Coffee/>
+      </div>
+
       <Memos state={state} />
     </div>
   );
