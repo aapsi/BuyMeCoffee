@@ -13,6 +13,9 @@ const Vapour9 = styled.span`--v:9;`;
 const Vapour10 = styled.span`--v:10;`;
 const Vapour11 = styled.span`--v:11;`;
 const Vapour12 = styled.span`--v:12;`;
+const Vapour13 = styled.span`--v:13;`;
+const Vapour14 = styled.span`--v:14;`;
+const Vapour15 = styled.span`--v:15;`;
 
 const Coffee = props => {
 
@@ -50,6 +53,9 @@ const Coffee = props => {
                     <Vapour10></Vapour10>
                     <Vapour11></Vapour11>
                     <Vapour12></Vapour12>
+                    <Vapour13></Vapour13>
+                    <Vapour14></Vapour14>
+                    <Vapour15></Vapour15>
                 </div>
             </div>
             <div className="lid"></div>
