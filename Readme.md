@@ -1,4 +1,12 @@
-# Steps
+# Steps to run
+-> Clone this repository
+-> open it in vs code and run:
+    npm install
+-> To run the app:
+    npm start    
+
+
+# How to build
 
 -> Create a folder BuyMeCoffe in VS code
 
