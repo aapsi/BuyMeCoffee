@@ -70,6 +70,12 @@ function App() {
   return (
     <div className="App" style={pageStyles}>
       <nav style={{ background: 'rgba(255, 255, 255, 0.5)', backdropFilter: 'blur(10px)', padding: '10px', textAlign: 'center', fontWeight: 'bold', fontSize: '24px' }}>BUY ME A COFFEE</nav>
+      <p
+        class="text-muted lead "
+        style={{ marginTop: "10px", marginLeft: "5px", color: "white" }}
+      >
+        <small style={{ marginTop: "5px", marginLeft: "5px", color: "white" }}>Connected Account - {account}</small>
+      </p>
       <div className="box">
         <Buy state={state} /> {/* Pass the state as a prop */}
         <Coffee/>

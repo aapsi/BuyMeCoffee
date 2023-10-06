@@ -35,6 +35,15 @@
   padding-top: 100px;
 }
 
+.sp {
+  margin-top: "5px";
+   margin-left : "2px" ;
+    font-weight: "bold";
+  color-scheme: "white";
+      font-size: "12";
+       margin-left: "auto";
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
