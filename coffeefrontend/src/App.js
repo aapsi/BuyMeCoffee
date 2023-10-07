@@ -74,7 +74,7 @@ function App() {
         class="text-muted lead "
         style={{ marginTop: "10px", marginLeft: "5px", color: "white" }}
       >
-        <small style={{ marginTop: "5px", marginLeft: "5px", color: "white" }}>Connected Account - {account}</small>
+        <small style={{ marginTop: "px", marginLeft: "5px", color: "white" }}>Connected Account - {account}</small>
       </p>
       <div className="box">
         <Buy state={state} /> {/* Pass the state as a prop */}
